@@ -23,9 +23,9 @@ read -p "Enter your GitHub Repository URL (e.g., https://github.com/YourUsername
 # Construct clone URL with PAT
 CLONE_URL="https://${GITHUB_USER}:${GITHUB_TOKEN}@${REPO_URL#https://}"
 
-# Get the Public IP of the EC2 instance
-PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
-echo "Detected Public IP: $PUBLIC_IP"
+# Set the exact IP explicitly
+PUBLIC_IP="13.233.227.158"
+echo "Target AWS Public IP: $PUBLIC_IP"
 
 echo "=========================================================="
 echo " Installing Prerequisites (PHP 8.2, Node 20, Nginx, MySQL)"
