@@ -38,9 +38,9 @@ apt update && DEBIAN_FRONTEND=noninteractive apt upgrade -y
 DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common curl git unzip zip nginx mysql-server
 
 # Add PHP Repository and install PHP 8.2
-add-apt-repository ppa:ondrej/php -y
+# add-apt-repository ppa:ondrej/php -y
 apt update
-DEBIAN_FRONTEND=noninteractive apt install -y php8.2-fpm php8.2-mysql php8.2-xml php8.2-curl php8.2-zip php8.2-mbstring php8.2-gd php8.2-bcmath
+DEBIAN_FRONTEND=noninteractive apt install -y php8.5-fpm php8.5-mysql php8.5-xml php8.5-curl php8.5-zip php8.5-mbstring php8.5-gd php8.5-bcmath
 
 # Install Node.js 20 & PM2
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
@@ -129,7 +129,7 @@ server {
     error_page 404 /index.php;
 
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.5-fpm.sock;
         fastcgi_param SCRIPT_FILENAME \$realpath_root\$fastcgi_script_name;
         include fastcgi_params;
     }
